@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8rtlj3ps83t0"]
+
+[ext_resource type="Script" path="res://main_character.gd" id="1_r13sa"]
+[ext_resource type="Script" path="res://addons/FSM/States_4_2d/idk_first_state.gd" id="2_0qq50"]
+[ext_resource type="Script" path="res://addons/FSM/States_4_2d/idle.gd" id="3_mewqa"]
+[ext_resource type="Script" path="res://addons/FSM/States_4_2d/jumping.gd" id="4_d6xsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3m0k"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_r13sa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x3m0k")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_0qq50")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_mewqa")
+
+[node name="jump" type="Node" parent="StateMachine"]
+script = ExtResource("4_d6xsq")
